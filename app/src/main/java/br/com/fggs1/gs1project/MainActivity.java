@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,25 +19,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unused") @OnClick(R.id.btn_camera) public void goToCamera() {
-        //Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-        ////intent.putExtra("SCAN_MODE", "QR_CODE_MODE");
-        //intent.putExtra("SCAN_MODE", "EAN-13");
-        //startActivityForResult(intent, 0);
-
-        Intent intent = new Intent();
-
+        new IntentIntegrator(this).initiateScan();
     }
 
     @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 0) {
-            if (resultCode == RESULT_OK) {
-                String contents = data.getStringExtra("SCAN_RESULT");
-                String format = data.getStringExtra("SCAN_RESULT_FORMAT");
-                Toast.makeText(this, String.format("%s", contents), Toast.LENGTH_SHORT)
-                    .show();
-            } else if (resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "Cancelado", Toast.LENGTH_SHORT).show();
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
             }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 }
