@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(this, ProductsListActivity.class);
                 intent.putExtra(ProductsListActivity.ARG_PRODUCT_CODE, result.getContents());
                 startActivity(intent);
-                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data);
