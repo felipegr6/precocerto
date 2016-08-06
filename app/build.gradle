@@ -42,6 +42,8 @@ dependencies {
     // Firebase
     compile 'com.google.firebase:firebase-database:9.4.0'
     compile 'com.google.firebase:firebase-messaging:9.4.0'
+    // https://mvnrepository.com/artifact/com.google.code.gson/gson
+    compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
 }
 // ADD THIS AT THE BOTTOM
 apply plugin: 'com.google.gms.google-services'
