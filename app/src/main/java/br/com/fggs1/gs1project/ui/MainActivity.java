@@ -1,9 +1,10 @@
-package br.com.fggs1.gs1project;
+package br.com.fggs1.gs1project.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
+import br.com.fggs1.gs1project.R;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.google.zxing.integration.android.IntentIntegrator;
