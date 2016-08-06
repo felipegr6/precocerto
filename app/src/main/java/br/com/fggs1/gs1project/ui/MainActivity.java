@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @SuppressWarnings("unused") @OnClick(R.id.btn_camera) public void goToCamera() {
+    @SuppressWarnings("unused") @OnClick(R.id.btn_scan) public void goToCamera() {
         new IntentIntegrator(this).initiateScan();
     }
 
@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
             } else {
+                Intent intent = new Intent(this, ProductsListActivity.class);
+                intent.putExtra(ProductsListActivity.ARG_PRODUCT_CODE, result.getContents());
+                startActivity(intent);
                 Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
             }
         } else {

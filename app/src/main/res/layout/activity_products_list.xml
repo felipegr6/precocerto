@@ -8,23 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ui.MainActivity"
+    tools:context="br.com.fggs1.gs1project.ui.ProductsListActivity"
     >
-
-  <Button
-      android:id="@+id/btn_scan"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_centerHorizontal="true"
-      android:text="Escanear Código de Barras"
-      />
-
-  <ImageButton
-      android:id="@+id/img_ads"
-      android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:layout_below="@+id/btn_scan"
-      android:layout_marginTop="8dp"
-      />
 
 </RelativeLayout>
