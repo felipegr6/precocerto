@@ -8,6 +8,10 @@ public class Company {
     private double longitude;
     private String name;
 
+    public Company() {
+        // Empty constructor required.
+    }
+
     public Company(long id, String ad, double latitude, double longitude, String name) {
         this.id = id;
         this.ad = ad;
