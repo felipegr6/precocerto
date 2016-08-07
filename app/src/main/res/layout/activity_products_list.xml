@@ -11,4 +11,10 @@
     tools:context="br.com.fggs1.gs1project.ui.ProductsListActivity"
     >
 
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/list"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      />
+
 </RelativeLayout>
