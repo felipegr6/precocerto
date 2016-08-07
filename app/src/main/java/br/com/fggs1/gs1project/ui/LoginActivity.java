@@ -29,7 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
-import java.util.List;
+import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -62,12 +62,13 @@ public class LoginActivity extends AppCompatActivity {
         listener = new ValueEventListener() {
             @Override public void onDataChange(DataSnapshot dataSnapshot) {
 
-                GenericTypeIndicator<List<User>> t = new GenericTypeIndicator<List<User>>() {
-                };
+                GenericTypeIndicator<Map<String, User>> t =
+                    new GenericTypeIndicator<Map<String, User>>() {
+                    };
 
-                List<User> mUsers = dataSnapshot.getValue(t);
+                Map<String, User> mUsers = dataSnapshot.getValue(t);
 
-                for (User u : mUsers) {
+                for (User u : mUsers.values()) {
                     if (u.getEmail().equals(email) && u.getPassword().equals(senha)) {
                         goMain();
                         persistencia.setLogin(true);
