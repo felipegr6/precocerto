@@ -1,6 +1,7 @@
 package br.com.fggs1.gs1project.ui;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -94,8 +97,6 @@ public class ProductsListActivity extends AppCompatActivity
                     products.addAll(mProducts);
                     adapter.notifyDataSetChanged();
                 } else {
-                    products.clear();
-                    adapter.notifyDataSetChanged();
                     Toast.makeText(ProductsListActivity.this,
                         "Não foi possível encontrar o produto.", Toast.LENGTH_SHORT).show();
                     onBackPressed();
@@ -115,7 +116,7 @@ public class ProductsListActivity extends AppCompatActivity
     }
 
     @SuppressWarnings("unused") @OnClick(R.id.fab) public void onFabClick() {
-        Toast.makeText(this, "ok", Toast.LENGTH_SHORT).show();
+        new IntentIntegrator(this).initiateScan();
     }
 
     @Override public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
@@ -130,5 +131,20 @@ public class ProductsListActivity extends AppCompatActivity
     @Override protected void onStop() {
         myRef.removeEventListener(listener);
         super.onStop();
+    }
+
+    @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() == null) {
+                Toast.makeText(this, "Operação cancelada.", Toast.LENGTH_LONG).show();
+            } else {
+                Intent intent = new Intent(this, ProductsListActivity.class);
+                intent.putExtra(ProductsListActivity.ARG_PRODUCT_CODE, result.getContents());
+                startActivity(intent);
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }
