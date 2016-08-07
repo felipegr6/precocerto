@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import br.com.fggs1.gs1project.R;
+import br.com.fggs1.gs1project.helper.Persistencia;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -14,7 +15,14 @@ public class SplashActivity extends AppCompatActivity {
 
         new Handler().postDelayed(new Runnable() {
             @Override public void run() {
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));
+
+                Persistencia persistencia = new Persistencia(SplashActivity.this);
+
+                if (persistencia.isLogged()) {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                } else {
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                }
                 finish();
             }
         }, 3000);
