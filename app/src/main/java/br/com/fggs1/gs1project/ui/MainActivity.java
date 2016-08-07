@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() == null) {
-                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Operação cancelada.", Toast.LENGTH_LONG).show();
             } else {
                 Intent intent = new Intent(this, ProductsListActivity.class);
                 intent.putExtra(ProductsListActivity.ARG_PRODUCT_CODE, result.getContents());
