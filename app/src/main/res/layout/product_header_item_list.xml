@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    >
+
+  <ImageView
+      android:id="@+id/img_product"
+      android:layout_width="160dp"
+      android:layout_height="wrap_content"
+      android:layout_alignBottom="@+id/txt_description"
+      android:layout_alignTop="@+id/txt_product_value"
+      android:scaleType="fitCenter"
+      />
+
+  <TextView
+      android:id="@+id/txt_product_value"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="8dp"
+      android:layout_marginStart="8dp"
+      android:layout_toEndOf="@+id/img_product"
+      android:layout_toRightOf="@+id/img_product"
+      android:textColor="@color/orange"
+      android:textSize="24sp"
+      tools:text="R$ 10,00"
+      />
+
+  <TextView
+      android:id="@+id/txt_product_name"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignLeft="@+id/txt_product_value"
+      android:layout_alignStart="@+id/txt_product_value"
+      android:layout_below="@+id/txt_product_value"
+      android:layout_marginTop="8dp"
+      android:textColor="@color/orange"
+      android:textSize="16sp"
+      tools:text="Produto muito bom"
+      />
+
+  <TextView
+      android:id="@+id/txt_description"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignLeft="@+id/txt_product_name"
+      android:layout_alignStart="@+id/txt_product_name"
+      android:layout_below="@+id/txt_product_name"
+      android:layout_marginTop="8dp"
+      android:maxLines="5"
+      android:minLines="5"
+      android:textColor="@color/orange"
+      tools:text="Alguma descrição"
+      />
+
+</RelativeLayout>
