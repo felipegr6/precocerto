@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     private DatabaseReference myRef;
     private ValueEventListener listener;
+
     private int adsSize;
     private int actualAd;
 

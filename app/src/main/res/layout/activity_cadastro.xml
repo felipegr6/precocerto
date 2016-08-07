@@ -2,47 +2,96 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="8dp"
     >
-
 
   <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_centerInParent="true"
+      android:background="@color/colorPrimary"
       android:orientation="vertical"
+      android:padding="8dp"
       >
 
-    <EditText
-        android:id="@+id/campoUsuario"
-        android:height="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/nome"
-        />
-    <EditText
-        android:id="@+id/campoEmail"
-
-        android:height="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        />
-
-    <EditText
-        android:id="@+id/campoSenha"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/hint_campo_usuario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/senha"
-        android:inputType="textPassword"
-        />
+        android:labelFor="@+id/campoUsuario"
+        >
 
-    <EditText
-        android:id="@+id/campoSenhaConfirm"
+      <EditText
+          android:id="@+id/campoUsuario"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/nome"
+          />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/hint_campo_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/senhaConfirm"
-        android:inputType="textPassword"
-        />
+        android:layout_marginTop="8dp"
+        android:labelFor="@+id/campoUsuario"
+        >
+
+      <EditText
+          android:id="@+id/campoEmail"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/email"
+          android:inputType="textEmailAddress"
+          />
+
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/hint_campo_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:labelFor="@+id/campoUsuario"
+        >
+
+      <EditText
+          android:id="@+id/campoSenha"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/senha"
+          android:inputType="textPassword"
+          />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/hint_campo_confirmar_senha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:labelFor="@+id/campoUsuario"
+        >
+
+      <EditText
+          android:id="@+id/campoSenhaConfirm"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:fontFamily="sans-serif"
+          android:hint="@string/senhaConfirm"
+          android:inputType="textPassword"
+          />
+    </android.support.design.widget.TextInputLayout>
+
   </LinearLayout>
+
+  <Button
+      android:id="@+id/btn_cadastrar"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="Cadastrar"
+      />
+
 </LinearLayout>

@@ -40,10 +40,18 @@
 
     <activity
         android:name=".ui.LoginActivity"
+        android:label="Login"
         android:screenOrientation="portrait"/>
 
     <activity
-        android:name=".ui.CadastroActivity"/>
+        android:name=".ui.CadastroActivity"
+        android:label="Cadastro"
+        android:parentActivityName=".ui.LoginActivity"
+        android:screenOrientation="portrait">
+      <meta-data
+          android:name="android.support.PARENT_ACTIVITY"
+          android:value=".ui.LoginActivity"/>
+    </activity>
 
     <activity
         android:name=".ui.SplashActivity"

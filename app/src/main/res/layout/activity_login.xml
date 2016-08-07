@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     >
 
   <LinearLayout
@@ -10,49 +9,105 @@
       android:layout_height="wrap_content"
       android:layout_centerInParent="true"
       android:orientation="vertical"
-      android:background="@color/colorPrimary"
       >
 
-    <EditText
-        android:id="@+id/campoUsuario"
-        android:background="@color/cardview_light_background"
-        android:height="20dp"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/usuario"
-        android:layout_weight="30"
-        />
-    <EditText
-        android:id="@+id/campoSenha"
-        android:layout_width="match_parent"
-        android:height="20dp"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
+        android:padding="8dp"
+        >
+
+      <android.support.design.widget.TextInputLayout
+          android:id="@+id/hint_campo_usuario"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:labelFor="@+id/campoUsuario"
+          >
+        <EditText
+            android:id="@+id/campoUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/usuario"
+            android:inputType="textEmailAddress"
+            />
+      </android.support.design.widget.TextInputLayout>
+
+      <android.support.design.widget.TextInputLayout
+          android:id="@+id/hint_campo_senha"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="8dp"
+          android:labelFor="@+id/campoSenha"
+          >
+
+        <EditText
+            android:id="@+id/campoSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:hint="@string/senha"
+            android:inputType="textPassword"
+            />
+
+      </android.support.design.widget.TextInputLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_entrar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/senha"
-        android:inputType="textPassword"
-        android:layout_weight="30"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="8dp"
+        android:text="ENTRAR"
         />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:width="@dimen/activity_vertical_margin"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
+        android:width="@dimen/activity_vertical_margin"
         />
   </LinearLayout>
 
-  <TextView
-      android:id="@+id/cadastro"
-      android:layout_width="wrap_content"
+  <LinearLayout
+      android:id="@+id/btn_cadastro"
+      android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:layout_gravity="right"
-      android:autoLink="web"
-      android:gravity="end"
-      android:padding="20px"
-      android:text="@string/cadastro"
-      android:orientation="vertical"
-      android:textAppearance="?android:attr/textAppearanceSmall"
-      />
+      android:layout_alignParentBottom="true"
+      android:gravity="center_horizontal"
+      android:orientation="horizontal"
+      android:padding="8dp"
+      >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Faça o seu "
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:id="@+id/cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cadastro"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/orange"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" aqui!"
+        android:textSize="16sp"
+        />
+
+  </LinearLayout>
 
 </RelativeLayout>
