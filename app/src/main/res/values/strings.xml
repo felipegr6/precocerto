@@ -1,4 +1,5 @@
 <resources>
+  <string name="app_name">Preço Certo</string>
   <string name="facebook_app_id">148645042238090</string>
   <string name="senha">Senha</string>
   <string name="usuario">E-mail</string>
@@ -6,5 +7,5 @@
   <string name="senhaConfirm">Confirmar Senha</string>
   <string name="cadastro">cadastro</string>
   <string name="email">E-mail</string>
-  <string name="app_name">Preço Certo</string>
+  <string name="action_logout">Logout</string>
 </resources>

@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Toast;
 import br.com.fggs1.gs1project.R;
+import br.com.fggs1.gs1project.helper.Persistencia;
 import br.com.fggs1.gs1project.model.Ad;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -74,6 +77,28 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
+    }
+
+    @Override public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        if (id == R.id.action_logout) {
+            Persistencia persistencia = new Persistencia(this);
+            persistencia.setLogin(false);
+            startActivity(new Intent(this, SplashActivity.class));
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        return true;
     }
 
     @Override protected void onResume() {
