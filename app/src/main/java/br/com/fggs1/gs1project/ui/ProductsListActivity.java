@@ -59,6 +59,7 @@ public class ProductsListActivity extends AppCompatActivity
 
         if (getIntent() != null) {
             productCode = getIntent().getStringExtra(ARG_PRODUCT_CODE);
+            if (productCode != null) productCode = productCode.replaceAll("[^a-zA-Z0-9]", "");
         }
 
         listener = new ValueEventListener() {
