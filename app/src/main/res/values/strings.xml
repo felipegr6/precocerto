@@ -1,3 +1,11 @@
 <resources>
   <string name="app_name">GS1Project</string>
+  <string name="facebook_app_id">148645042238090</string>
+  <string name="senha">Senha</string>
+  <string name="usuario">Usuário</string>
+  <string name="nome">Nome</string>
+  <string name="senhaConfirm">Confirmar Senha</string>
+  <string name="cadastro">Cadastre-se</string>
+  <string name="email">E-mail</string>
+
 </resources>
